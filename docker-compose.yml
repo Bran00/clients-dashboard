@@ -1,0 +1,39 @@
+version: '3.8'
+
+services:
+  api:
+    build:
+      context: ./api
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./api:/app
+    command: npm start
+    depends_on:
+      - mongodb
+    networks:
+      - app-network
+
+  mongodb:
+    image: mongo
+    ports:
+      - "27017:27017"
+    networks:
+      - app-network
+
+  app:
+    build:
+      context: ./app
+    ports:
+      - "4200:4200"
+    volumes:
+      - ./app:/app
+    command: npm start
+    depends_on:
+      - api
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge

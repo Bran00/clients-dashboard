@@ -1,0 +1,8 @@
+<!-- client-details.component.html -->
+<div class="client-details">
+  <button routerLink="/client">Voltar</button>
+  <h2>{{ clientDetails.name }} Details</h2>
+  <img [src]="clientDetails.image_src" alt="{{ clientDetails.name }}" class="client-image" />
+  <p>Total de Empreendimentos: {{ clientDetails.enterprises.length }}</p>
+  <p>Total de Imóveis/Unidades: {{ getTotalProperties() }}</p>
+</div>

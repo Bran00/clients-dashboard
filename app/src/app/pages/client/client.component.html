@@ -1,0 +1,20 @@
+<!-- client.component.html -->
+<div class="client-module">
+  <button routerLink="/">Voltar para a Home</button>
+  <div class="search-bar">
+    <input type="text" [(ngModel)]="searchTerm" placeholder="Pesquisar por nome" (input)="onSearch()">
+  </div>
+  <div class="totals">
+    <p>Total de Clientes: {{ totalClients }}</p>
+    <p>Total de Empreendimentos: {{ totalDevelopments }}</p>
+    <p>Total de Imóveis/Unidades: {{ totalProperties }}</p>
+  </div>
+  <ul class="client-list">
+    <li *ngFor="let client of filteredClients">
+      <a [routerLink]="['/client', client._id]">
+      <img [src]="client.image_src" alt="{{ client.name }}" />
+      <h3>{{ client.name }}</h3>
+      </a>
+    </li>
+  </ul>
+</div>

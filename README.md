@@ -33,25 +33,32 @@ Antes de começar, certifique-se de ter os seguintes pré-requisitos instalados:
 
 ## Configuração do Projeto
 
-1. Clone o repositório:
+1.  Clone o repositório:
 
     ```bash
     git clone https://github.com/Bran00/clients-dashboard
     cd seu-repositorio
     ```
 
-2. Configurar a API:
+2.  Configurar a API:
 
     ```bash
     cd api
     npm install
     ```
 
-3. Configurar a Aplicação Angular:
+3.  Configurar a Aplicação Angular:
 
     ```bash
     cd ../app
     npm install
+    ```
+
+4.  Configurar a SSL:
+
+    ```bash
+
+    ENV NODE_OPTIONS="--openssl-legacy-provider"
     ```
 
 ## Executando a API

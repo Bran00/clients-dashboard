@@ -9,15 +9,6 @@ services:
     volumes:
       - ./api:/app
     command: npm start
-    depends_on:
-      - mongodb
-    networks:
-      - app-network
-
-  mongodb:
-    image: mongo
-    ports:
-      - "27017:27017"
     networks:
       - app-network
 

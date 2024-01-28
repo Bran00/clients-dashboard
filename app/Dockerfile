@@ -1,24 +1,12 @@
 FROM node:20 as builder
 
-WORKDIR /src/app
+WORKDIR /app
+
+ENV NODE_OPTIONS="--openssl-legacy-provider"
 
 COPY package*.json ./
-
-RUN npm cache clean --force
-
-RUN npm install --legacy-peer-deps caniuse-lite@latest
-
-
-RUN npm cache clean --force
+RUN npm install -g @angular/cli
+RUN npm install --legacy-peer-deps
 
 COPY . .
-
 RUN npm run build
-
-FROM nginx:1.21
-
-COPY --from=builder /src/app/dist/app /usr/share/nginx/html
-
-EXPOSE 80
-
-CMD ["nginx", "-g", "daemon off;"]

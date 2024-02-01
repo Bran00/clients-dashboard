@@ -12,7 +12,7 @@
   <ul class="client-list">
     <li *ngFor="let client of filteredClients">
       <a [routerLink]="['/client', client._id]">
-      <img [src]="client.image_src" alt="{{ client.name }}" />
+      <img [src]="client.image_src" alt="{{ client?.name }}" />
       <h3>{{ client.name }}</h3>
       </a>
     </li>

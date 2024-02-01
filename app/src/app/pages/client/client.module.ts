@@ -20,7 +20,7 @@ export const ClientRoutes: Routes = [
 
 @NgModule({
   declarations: [ClientComponent],
-  imports: [CommonModule, FormsModule, RouterModule.forChild(ClientRoutes)],
+  imports: [CommonModule, FormsModule, RouterModule],
   providers: [ClientService],
 })
 export class ClientModule {}

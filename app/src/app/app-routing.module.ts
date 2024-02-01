@@ -2,7 +2,7 @@ import { NgModule } from "@angular/core";
 import { Routes, RouterModule } from "@angular/router";
 import { NavbarComponent } from "./navigation/navbar.component";
 import { EnterpriseRoutes } from "./pages/enterprise/enterprise.module";
-import { ClientModule } from "./pages/client/client.module"; 
+import { ClientModule, ClientRoutes } from "./pages/client/client.module"; 
 
 const routes: Routes = [
   {
@@ -10,11 +10,7 @@ const routes: Routes = [
     component: NavbarComponent,
     children: [
       ...EnterpriseRoutes,
-      {
-        path: "client",
-        loadChildren: () =>
-          import("./pages/client/client.module").then((m) => m.ClientModule),
-      },
+      ...ClientRoutes
     ],
   },
 ];

@@ -12,4 +12,4 @@ COPY . .
 
 EXPOSE 4200
 
-CMD ["npm", "start"]
+CMD ["npm", "install", "&&", "ng", "serve", "--host", "0.0.0.0"]
